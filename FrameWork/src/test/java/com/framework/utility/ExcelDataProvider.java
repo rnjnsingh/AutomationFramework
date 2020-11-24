@@ -3,30 +3,31 @@ package com.framework.utility;
 import java.io.File;
 import java.io.FileInputStream;
 
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-/*public class ExcelDataProvider {
-	public XSSFWorkbook obj;
+public class ExcelDataProvider {
+	public XSSFSheet obj;
 	public ExcelDataProvider()
 	{
 		try {
-		File src =new File("./Testdata/TestData2.xlsx");
-	
-			FileInputStream Raw =new FileInputStream(src);
-			 obj=new XSSFWorkbook(Raw);
+		XSSFWorkbook excel=new XSSFWorkbook("C:\\Users\\Ash\\git\\AutomationFramework\\FrameWork\\Testdata\\TestData2.xlsx");
+	obj=excel.getSheet("Login");
+			
+			 
 		} catch (Exception e) {
 			System.out.println("file not found"+e.getMessage());
 		}
 	}
 	
-	public String getStringData(String sheetName, int row, int col)
+	public String getStringData(int row, int col)
 	{
-		return obj.getSheet(sheetName).getRow(row).getCell(col).getStringCellValue();
+		return obj.getRow(row).getCell(col).getStringCellValue();
 	}
 
-	public String getStringData(int index,int row, int col  )
+	/*public String getStringData(int row, int col  )
 	{
-		return obj.getSheetAt(index).getRow(row).getCell(col).getStringCellValue();
+		return obj.getRow(row).getCell(col).getStringCellValue();
 	}
+	*/
 }
-*/

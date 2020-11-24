@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import com.framework.pages.BaseClass;
 import com.framework.pages.LoginToFlipkartPage;
+import com.framework.utility.ExcelDataProvider;
 
 public class LoginTestFlipkart extends BaseClass {
 	
@@ -12,17 +13,17 @@ public class LoginTestFlipkart extends BaseClass {
 public void loginMethod()
 {
 
-	/*ExcelDataProvider excel =new ExcelDataProvider();
-String userName= excel.getStringData("Login",0,0);
+	ExcelDataProvider excel =new ExcelDataProvider();
+String userName= excel.getStringData(0,0);
 	
 
-	String pass= excel.getStringData("Login",0,1);
+	String pass= excel.getStringData(0,1);
 		
-*/
+
 		logger=report.createTest("Login to flipkart");
 		LoginToFlipkartPage LoginToFlipkartPage = PageFactory.initElements(driver,LoginToFlipkartPage.class);
 		logger.info("Starting application");
-		LoginToFlipkartPage.loginToFlipkart("userName1","pass2");
+		LoginToFlipkartPage.loginToFlipkart(userName,pass);
 		logger.pass("Test pass");
 		
 		
